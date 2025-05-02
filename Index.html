@@ -6,7 +6,7 @@
   <title>Mon Ciel Profond</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<script src="script.js"></script><body>
+<body>
   <header>
     <h1>Mon Ciel Profond</h1>
     <button id="toggleMode">🌙 Mode Nuit</button>
@@ -27,3 +27,8 @@
           <option value="Nébuleuse">Nébuleuse</option>
           <option value="Amas">Amas</option>
         </select>
+        <textarea id="commentInput" placeholder="Commentaire" rows="4"></textarea>
+        <label><input type="checkbox" id="watermark"> Ajouter un filigrane</label>
+        <button type="submit">Ajouter à la galerie</button>
+      </form>
+      <button onclick="hideForm()">⬅️ Retour à
