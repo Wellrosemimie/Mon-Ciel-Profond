@@ -69,15 +69,17 @@ function createCard(data) {
   img.style.cursor = "pointer";
   img.onclick = () => openModal(data.image);
 
-  card.appendChild(img);
   const caption = document.createElement("div");
+  caption.classList.add("caption");
   caption.innerHTML = `
     <h3>${data.title}</h3>
-    <p><strong>Type :</strong> ${data.type}</p>
+    <p><strong>Type :</strong> <span class="type">${data.type}</span></p>
     <p><strong>Date :</strong> ${data.date}</p>
     <p>${data.comment}</p>
     <label><input type="checkbox"> Cochez si vous souhaitez refaire cette observation</label>
   `;
+
+  card.appendChild(img);
   card.appendChild(caption);
   gallery.appendChild(card);
 }
@@ -85,7 +87,8 @@ function createCard(data) {
 function filterType(type) {
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
-    if (type === 'Tous' || card.innerHTML.includes(type)) {
+    const typeText = card.querySelector('.type')?.textContent || '';
+    if (type === 'Tous' || typeText === type) {
       card.style.display = 'block';
     } else {
       card.style.display = 'none';
